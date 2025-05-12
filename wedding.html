@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Clarissa & Dave</title>
+<link rel="icon" href="https://drive.google.com/uc?export=view&id=1_7ZONunp0yco-yL0-tD5yo4t5D8lGFZB" type="image/png" />  
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      background-color: #fff8f0;
+      font-family: 'Playfair Display', serif;
+      margin: 0;
+    }
+
+    /* Container for the video, initial style (will be adjusted dynamically) */
+    .video-container {
+      position: relative;
+      width: 100%;
+      max-width: 800px;
+      margin: 50px auto;
+      height: 0; /* Will be set via padding-bottom for aspect ratio */
+      padding-bottom: 56.25%; /* Default to 16:9 aspect ratio, overridden by JS */
+    }
+    /* The iframe fills the container absolutely */
+    #responsiveVideo {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    /* Styles for header, images, text, etc. */
+    .header-section {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+    }
+    .header-section .images {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+    .header-section .images img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      transition: opacity 2s ease-in-out;
+    }
+    .header-section .images img.active {
+      opacity: 1;
+      z-index: 1;
+    }
+    .header-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-family: 'Great Vibes', cursive;
+      font-size: 4rem;
+      color: #fde2e2;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+      z-index: 2;
+      text-align: center;
+    }
+    .section-title {
+      font-family: 'Great Vibes', cursive;
+      font-size: 3rem;
+      color: #d6336c;
+      margin-top: 50px;
+      text-align: center;
+    }
+
+    
+  </style>
+</head>
+<body>
+
+  <!-- Header with images and overlay text -->
+  <div class="header-section mb-5">
+    <div class="images">
+      <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80" class="active" alt="Wedding" />
+      <img src="https://images.unsplash.com/photo-1549924231-f129b911e442?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80" alt="Couple" />
+      <img src="https://images.unsplash.com/photo-1518300319752-719d8f4c7f3d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80" alt="Venue" />
+      <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80" alt="Celebration" />
+      <img src="https://images.unsplash.com/photo-1497366778219-7684bcb783f4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80" alt="Happy Couple" />
+    </div>
+    <div class="header-text">Clarissa & Dave</div>
+  </div>
+
+  <!-- Welcome message -->
+  <div class="text-center mb-5 px-3">
+    <h2 class="section-title">You're Invited</h2>
+    <p class="lead mt-3">Join us as we celebrate the union of two hearts. We look forward to sharing our special day with you!</p>
+  </div>
+
+<!-- Wedding details with images -->
+<div class="container text-center mb-5">
+  <div class="row g-4 wedding-images">
+    <div class="col-md-4">
+      <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="img-fluid rounded shadow" alt="Celebration" />
+    </div>
+    <div class="col-md-4">
+      <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="img-fluid rounded shadow" alt="Wedding Venue" />
+    </div>
+    <div class="col-md-4">
+      <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="img-fluid rounded shadow" alt="Celebration" />
+    </div>
+  </div>
+</div>
+
+  <!-- Our Love Story -->
+  <div class="story bg-light py-5">
+    <div class="container">
+      <h3 class="section-title mb-4 text-cente">Our Love Story</h3>
+      <p class="mt-4 mx-auto text-center" style="max-width:1000px; font-size:1.2rem;">
+        It all began with a chance encounter and a spark that grew into a beautiful journey. From our first date to unforgettable adventures, every moment has led us here. We are excited to celebrate our love with you!
+      </p>
+    </div>
+  </div>
+
+
+    <div class="mb-5">
+        <h3 class="section-title mb-4 text-center">Memories</h3>
+        <!-- Google Drive Video Embed -->
+        <div class="ratio ratio-16x9 mx-auto" style="max-width: 1000px;">
+            <iframe 
+            https:
+            src="https://drive.google.com/file/d/1YN7VrfaeisDoCKQOv_jqu1hJXVQQdfS2/preview" 
+            title="Wedding Memories Video" 
+            allowfullscreen 
+            allow="autoplay"></iframe>
+        </div>
+    </div>
+
+    <div class="container text-center mb-5">
+    <div class="mt-4">
+        <h3 class="section-title mb-4 text-center">Event Details</h3>
+        <p style="font-size:2rem;">Date: June 28, 2025</p>
+        <p style="font-size:2rem;">Time: 12:00PM</p>
+        <p style="font-size:2rem;">Location: Cumba, Lian, Batangas</p>
+        <h4 class="mt-4">Countdown to Event:</h4>
+        <div id="countdown" style="font-size:2.5rem;"></div>
+    </div>
+</div>
+
+
+  <!-- JavaScript for dynamic aspect ratio -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+    const images = document.querySelectorAll('.header-section .images img');
+    let currentIndex = 0;
+    const totalImages = images.length;
+
+    setInterval(() => {
+      // Remove 'active' from current image
+      images[currentIndex].classList.remove('active');
+      // Increment index
+      currentIndex = (currentIndex + 1) % totalImages;
+      // Add 'active' to the new current image
+      images[currentIndex].classList.add('active');
+    }, 3000); // Change image every 3 seconds
+  });
+    // Function to extract YouTube video ID from URL
+    function getVideoId(url) {
+      const regex = /[?&]v=([^&]+)/;    
+      const embedRegex = /embed\/([^?&]+)/;
+      let match = url.match(regex);
+      if (match && match[1]) {
+        return match[1];
+      }
+      match = url.match(embedRegex);
+      if (match && match[1]) {
+        return match[1];
+      }
+      return '';
+    }
+
+     const eventDate = new Date('June 28, 2025 12:00:00').getTime();
+
+  const countdownFunction = setInterval(() => {
+    const now = new Date().getTime();
+    const distance = eventDate - now;
+
+    if (distance < 0) {
+      document.getElementById('countdown').innerHTML = "The event has started!";
+      clearInterval(countdownFunction);
+      return;
+    }
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor(
+      (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+    );
+    const minutes = Math.floor(
+      (distance % (1000 * 60 * 60)) / (1000 * 60)
+    );
+    const seconds = Math.floor(
+      (distance % (1000 * 60)) / 1000
+    );
+
+    document.getElementById('countdown').innerHTML =
+      `${days}d ${hours}h ${minutes}m ${seconds}s`;
+  }, 1000);
+
+    function setVideoAspectRatio() {
+      const iframe = document.getElementById('responsiveVideo');
+      const wrapper = document.getElementById('videoWrapper');
+      const videoId = getVideoId(iframe.src);
+      if (!videoId) return;
+
+      // Fetch the thumbnail image to get natural dimensions
+      const thumbnailUrl = `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
+      const img = new Image();
+      img.onload = function() {
+        const width = img.naturalWidth;
+        const height = img.naturalHeight;
+        const aspectRatio = height / width; // e.g., 16:9 -> 0.5625
+        // Set padding-bottom to maintain aspect ratio
+        wrapper.style.paddingBottom = (aspectRatio * 100) + '%';
+        wrapper.style.height = '0'; // Reset height
+      };
+      img.onerror = function() {
+        // Fallback to default 16:9 if thumbnail fails
+        wrapper.style.paddingBottom = '56.25%';
+        wrapper.style.height = '0';
+      };
+      img.src = thumbnailUrl;
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      setVideoAspectRatio();
+    });
+  </script>
+
+  <!-- Bootstrap JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
