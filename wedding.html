@@ -3,475 +3,24 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Clarissa & Dave</title>
+  <title>Wedding Invitation</title>
   <link rel="icon" href="https://drive.google.com/uc?export=view&id=1_7ZONunp0yco-yL0-tD5yo4t5D8lGFZB" type="image/png" />
 
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display&display=swap" rel="stylesheet" />
-  <style>
-    /* Root color for rust orange theme */
-    :root {
-      --rust-orange: #B7410E;
-      --light-rust: #D2691E;
-    }
+  <link rel="stylesheet" href="styles.css" />
 
-    html {
-      scroll-behavior: smooth; /* Enable smooth scrolling */
-    }
-
-    body {
-      background-color: #fff8f0;
-      font-family: 'Playfair Display', serif;
-      margin: 0;
-    }
-
-    /* Navbar Styling */
-    .navbar-custom {
-      background-color: rgba(255, 255, 255, 0.9);
-      backdrop-filter: blur(10px);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      z-index: 9999;
-    }
-    .navbar-custom .nav-link {
-      font-family: 'Great Vibes', cursive;
-      font-size: 1.2rem;
-      color: var(--rust-orange);
-      transition: all 0.3s ease;
-    }
-    .navbar-custom .nav-link:hover {
-      color: var(--light-rust);
-      transform: scale(1.05);
-    }
-
-    /* Header with images and overlay text */
-    .header-section {
-      position: relative;
-      width: 100vw;
-      height: 100vh;
-      overflow: hidden;
-    }
-    .header-section .images {
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-    }
-    .header-section .images img {
-      position: absolute;
-      width: 100%; height: 100%;
-      object-fit: cover;
-      top: 0; left: 0;
-      opacity: 0;
-      transition: opacity 2s ease-in-out;
-      border-radius: 0 0 10px 10px;
-    }
-    .header-section .images img.active {
-      opacity: 1;
-      z-index: 1;
-    }
-    /* Overlay text and countdown container */
-    .header-info {
-      position: absolute;
-      top: 50%; left: 50%;
-      transform: translate(-50%, -50%);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      color: var(--rust-orange);
-      z-index: 2;
-    }
-    .header-text {
-      font-family: 'Great Vibes', cursive;
-      font-size: 4rem;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-      margin-bottom: 20px;
-    }
-    #final-countdown {
-      font-size: 2.5rem;
-      font-weight: bold;
-      color: var(--rust-orange);
-      opacity: 0;
-      transition: opacity 2s ease;
-    }
-    @keyframes fadeIn {
-      to { opacity: 1; }
-    }
-
-    /* Section Titles */
-    .section-title {
-      font-family: 'Great Vibes', cursive;
-      font-size: 3rem;
-      color: var(--rust-orange);
-      margin-top: 50px;
-      margin-bottom: 30px;
-      text-align: center;
-    }
-
-    /* Sections with background colors and styling */
-    .section {
-      padding: 60px 20px;
-      transition: background-color 0.5s ease;
-    }
-
-    /* Specific section backgrounds for visual separation */
-    #welcome {
-      background-color: #ffe5b4; /* Light orange / peach */
-    }
-    #story {
-      background-color: #fefae0; /* Light yellowish */
-    }
-    #memories {
-      background-color: #ffe4c4; /* Bisque / soft orange */
-    }
-    #event-details {
-      background-color: #ffd1a4; /* Light apricot */
-    }
-    /* Image gallery section with dark overlay for contrast if needed */
-    #images-gallery {
-      background-color: #f5deb3; /* Wheat color */
-    }
-
-    /* Memories images hover effect */
-    .wedding-images img {
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-    .wedding-images img:hover {
-      transform: scale(1.05);
-      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-    }
-
-    /* Responsive iframe for video */
-
-
-    /* Section headers in each section to match theme */
-    .section-header {
-      font-family: 'Great Vibes', cursive;
-      font-size: 3rem;
-      color: var(--rust-orange);
-      margin-top: 50px;
-      margin-bottom: 20px;
-      text-align: center;
-    }
-
-    /* Make images in gallery interactive with hover zoom (optional) */
-    .images-gallery {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      justify-content: center;
-    }
-    .images-gallery img {
-      max-width: 200px;
-      cursor: pointer;
-      border-radius: 8px;
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-    .images-gallery img:hover {
-      transform: scale(1.1);
-      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-    }
-
-    /* For lightbox effect, you may add a lightbox plugin or custom modal (not included here) */
-    .img-container {
-    width: 150px; /* or any fixed size you prefer */
-    height: 150px;
-    overflow: hidden;
-    border-radius: 8px;
-    flex: 1 1 auto; /* allows responsiveness if needed */
-  }
-
-  /* Make images fill container and cover, maintaining aspect ratio */
-  .img-container img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    transition: transform 0.3s, box-shadow 0.3s;
-  }
-
-  /* Optional hover effect for images */
-  .img-container img:hover {
-    transform: scale(1.05);
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-  }
-
-  /* Responsive adjustment for smaller screens if needed */
-  @media (max-width: 600px) {
-    .img-container {
-      width: 100px;
-      height: 100px;
-    }
-  }
-
-  .video-container {
-      position: relative;
-      width: 100%;
-      max-width: 800px;
-      margin: 50px auto;
-      height: 0; /* Will be set via padding-bottom for aspect ratio */
-      padding-bottom: 56.25%; /* Default to 16:9 aspect ratio, overridden by JS */
-    }
-    /* The iframe fills the container absolutely */
-    #responsiveVideo {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      border: none;
-    }
-
-
-
-
-
-    .quote1 {
-      font-style: italic;
-    
-      margin-bottom: 20px;
-      font-size: 1.3em;
-      text-align: center;
-      color: var(--rust-orange);
-    }
-
-    .section1-title1 {
-      font-weight: bold;
-      font-size: 1.3em;
-      margin-bottom: 10px;
-      text-align: center;
-    }
-
-    .names1 {
-      margin-bottom: 15px;
-      font-size: 1.2em;
-      line-height: 1.4;
-      text-align: center;
-    }
-
-    /* Container styles for columns */
-    .two1-columns1, .three1-columns1 {
-      display: flex;
-      justify-content: center;
-      gap: 40px;
-      flex-wrap: wrap;
-      margin-bottom: 30px;
-    }
-
-    .column1 {
-      max-width: 300px;
-      width: 100%;
-      text-align: left;
-    }
-
-    /* Responsive adjustments */
-    @media (max-width: 768px) {
-      body1 {
-        padding: 20px 10px;
-      }
-
-      .quote1 {
-        font-size: 1.2em;
-      }
-
-      .section-title1 {
-        font-size: 1em;
-      }
-
-      .names1 {
-        font-size: 1.1em;
-      }
-
-      .two-columns1, .three-columns1 {
-        flex-direction: column;
-        align-items: center;
-        gap: 30px;
-      }
-
-      .column1 {
-        text-align: center;
-        max-width: 90%;
-      }
-    }
-
-
-
-
-    h1 {
-      text-align: center;
-      font-size: 2.5em;
-      color: #753b00;
-      margin-bottom: 10px;
-    }
-
-    p {
-      text-align: center;
-      font-size: 1.1em;
-    }
-
-    .colors2 {
-      display: flex;
-      justify-content: center;
-      gap: 12px;
-      margin: 20px 0 30px;
-    }
-
-    .color2 {
-      width: 30px;
-      height: 30px;
-      border-radius: 50%;
-      border: 2px solid #ccc;
-    }
-
-    h2 {
-      text-align: center;
-      font-size: 1.8em;
-      color: #753b00;
-      margin-bottom: 40px;
-    }
-
-    .timeline2 {
-      position: relative;
-      padding: 20px 0;
-      margin-top: 20px;
-    }
-
-    .timeline2::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 50%;
-      width: 4px;
-      height: 100%;
-      background-color: #d79e61;
-      transform: translateX(-50%);
-    }
-
-    .timeline-item2 {
-      position: relative;
-      width: 50%;
-      padding: 20px 30px;
-      box-sizing: border-box;
-    }
-
-    .timeline-item2.left2 {
-      left: 0;
-      text-align: right;
-    }
-
-    .timeline-item2.right2 {
-      left: 50%;
-      text-align: left;
-    }
-
-    .timeline-item2::before {
-      content: '';
-      position: absolute;
-      top: 30px;
-      width: 30px;
-      height: 4px;
-      background-color: #d79e61;
-    }
-
-    .timeline-item2.left2::before {
-      right: -30px;
-    }
-
-    .timeline-item2.right2::before {
-      left: -30px;
-    }
-
-    .time2 {
-      font-weight: bold;
-      font-size: 1.1em;
-      color: #753b00;
-    }
-
-    .desc2 {
-      font-size: 0.95em;
-      margin-top: 5px;
-    }
-
-    @media screen and (max-width: 768px) {
-      .timeline2::before {
-        left: 20px;
-      }
-
-      .timeline-item2 {
-        width: 100%;
-        padding: 20px 20px 20px 60px;
-        text-align: left !important;
-        left: 0 !important;
-      }
-
-      .timeline-item2::before {
-        left: 20px !important;
-        right: auto !important;
-      }
-
-      .timeline-item2.left2,
-      .timeline-item2.right2 {
-        text-align: left;
-      }
-    }
-
-
-    #main-content {
-    /*display: none;*/
-  }
-
-  /* Modal overlay styles */
-  .modal {
-    display: block; /* Show modal on page load */
-    position: fixed;
-    z-index: 9999;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0,0,0,0.5);
-  }
-
-  /* Modal content box */
-  .modal-content {
-    background-color: #fff;
-    margin: 15% auto;
-    padding: 20px;
-    border-radius: 8px;
-    width: 80%;
-    max-width: 500px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-    text-align: center;
-  }
-
-  /* Close button styles */
-  .close-btn {
-    background-color: #753b00;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    margin-top: 20px;
-    font-size: 16px;
-  }
-
-  .close-btn:hover {
-    background-color:#753b00;
-  }
-
-  </style>
 </head>
 <body>
-<!-- <div id="welcomeModal" class="modal">
-  <div class="modal-content">
-    <h2>You are Invited!</h2>
-    <p>Celebrate with us as we mark the beginning of our new journey together in love and commitment. Join us in this joyous celebration of our wedding day!</p>
-    <button id="closeModal" class="close-btn">Close</button>
+  <div id="welcomeModal" class="modal">
+    <div class="modal-content">
+      <h2>You are Invited!</h2>
+      <p>Celebrate with us as we mark the beginning of our new journey together in love and commitment. Join us in this joyous celebration of our wedding day!</p>
+      <button id="closeModal" class="close-btn">Close</button>
+    </div>
   </div>
-//</div>-->
 
 <div id="main-content">
   <nav class="navbar navbar-expand-lg navbar-custom fixed-top py-3">
@@ -522,10 +71,15 @@
     <img src="img8.jpeg" alt="Guests" />
     <img src="img9.jpeg" alt="Dance" />
     <img src="img10.jpeg" alt="Cake" />
+    <img src="img7.jpeg" alt="Decor" />
+    <img src="img8.jpeg" alt="Guests" />
+    <img src="img9.jpeg" alt="Dance" />
+    <img src="img10.jpeg" alt="Cake" />
   </div>
   <!-- Overlay text and countdown -->
   <div class="header-info">
-    <div class="header-text" style="color: var(--rust-orange);">Clarissa & Dave</div>
+    <span class="name-desktop header-text">Dave & Clarissa</span>
+    <span class="name-mobile header-text">Dave<br/> & <br>Clarissa</span>
   </div>
 </div>
 
@@ -550,6 +104,30 @@
     </div>
     <div class="img-container">
       <img src="img7.jpeg" alt="Memory 6" />
+    </div>
+  </div>
+</div>
+
+<div class="section" id="images-gallery" style="background-color: #f5deb3; padding: 20px;">
+  <div class="images-gallery d-flex flex-wrap justify-content-center gap-3">
+    <!-- Each image inside a square container -->
+    <div class="img-container">
+      <img src="img11.jpg" alt="Memory 1" />
+    </div>
+    <div class="img-container">
+      <img src="img15.jpg" alt="Memory 2" />
+    </div>
+    <div class="img-container">
+      <img src="img13.jpg" alt="Memory 3" />
+    </div>
+    <div class="img-container">
+      <img src="img14.jpg" alt="Memory 4" />
+    </div>
+    <div class="img-container">
+      <img src="img16.jpg" alt="Memory 5" />
+    </div>
+    <div class="img-container">
+      <img src="img17.jpg" alt="Memory 6" />
     </div>
   </div>
 </div>
@@ -598,20 +176,6 @@
     </div>
   </div>
 
-<div class="quote1">To assist us in our needs</div>
-
-  <div class="two1-columns1">
-    <div class="column1">
-      <div class="section1-title1" style="color: var(--rust-orange);">BEST MAN</div>
-      <div class="names1">Christian Tolibao</div>
-    </div>
-
-    <div class="column1">
-      <div class="section1-title1" style="color: var(--rust-orange);">MAID OF HONOR</div>
-      <div class="names1">Ma. Sofia Balbar</div>
-    </div>
-  </div>
-
   <div class="quote1">To guide us in our way, To light our path, To clothe us as one, To bind us together</div>
 
   <div class="two1-columns1">
@@ -643,7 +207,7 @@
   <div class="three1-columns1">
     <div class="column1">
       <div class="section1-title1" style="color: var(--rust-orange);">RING BEARER</div>
-      <div class="names1">Zaijohn John Balbar</div>
+      <div class="names1">Zaijohn Jordan Balbar</div>
     </div>
     <div class="column1">
       <div class="section1-title1" style="color: var(--rust-orange);">COIN BEARER</div>
@@ -683,7 +247,12 @@
         </div>
     </div>
 
-    <h3 class="section-title" id="vibes" style="color: var(--rust-orange);">The Vibes</h3>
+    
+
+    <div style="background-color: white;">
+      <br>
+
+      <h3 class="section-title" id="vibes" style="color: var(--rust-orange);">The Vibes</h3>
     <p>We would love to see you in your<br>
       <strong>SEMI-FORMAL ATTIRE</strong><br>
       We encourage you to dress according to our wedding color
@@ -694,8 +263,40 @@
       <div class="color2" style="background-color: #e87d00;"></div>
       <div class="color2" style="background-color: #fbc491;"></div>
       <div class="color2" style="background-color: #fdddc5;"></div>
-      <div class="color2" style="background-color: #ffffff;"></div>
     </div>
+
+    <div class="attire-section">
+      <h2>Principal Sponsors</h2>
+      <div class="palette">
+        <div class="color-swatch" style="background-color: #0f1f61;"></div>
+        <div class="color-swatch" style="background-color: #283b8a;"></div>
+        <div class="color-swatch" style="background-color: #405da0;"></div>
+        <div class="color-swatch" style="background-color: #5f7db3;"></div>
+        <div class="color-swatch" style="background-color: #8a99c4;"></div>
+        <div class="color-swatch" style="background-color: #b0bfe0;"></div>
+      </div>
+
+      <div class="attire-images">
+        <!-- Wrap first two images in a container -->
+        <div class="image-row">
+          <img src="attire.png" alt="Barong with Black Pants" style="height: 100px; width: 100px; margin-right: 1px;">
+          <img src="dress.png" alt="Blue Gown" style="height: 100px; width: 100px; margin-right: 1px;">
+        </div>
+        <!-- Wrap next two images in another container -->
+        <div class="image-row">
+          <img src="barong.png" alt="Barong with Black Pants" style="height: 100px; width: 100px; margin-right: 1px;">
+          <img src="dress2.png" alt="Detailed Blue Gown" style="height: 100px; width: 100px;">
+        </div>
+      </div>
+      
+      <p class="description">
+        LADIES: LONG GOWN IN SHADE OF BLUE<br>
+        GENTLEMEN: TRADITIONAL BARONG WITH BLACK PANTS<br><br>
+        <em>(Strictly white is reserved for the bride)</em>
+      </p>
+      <br>
+    </div>
+  </div>
 
     <h3 class="section-title" style="color: var(--rust-orange);">Wedding Timeline</h3>
 
@@ -737,90 +338,10 @@
 
 </div>
 
-
+<script src="script.js"></script>
 <!-- Scripts -->
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    // Modal elements
-    const modal = document.getElementById('welcomeModal');
-    const closeBtn = document.getElementById('closeModal');
-    const mainContent = document.getElementById('main-content');
-
-    // Close modal on button click
-    if (closeBtn && modal && mainContent) {
-      closeBtn.addEventListener('click', function() {
-        modal.style.display = 'none';
-        mainContent.style.display = 'block';
-      });
-    }
-
-    // Carousel images
-    const images = document.querySelectorAll('.header-section .images img');
-    let currentIndex = 0;
-
-    if (images.length > 0) {
-      setInterval(() => {
-        images.forEach(img => img.classList.remove('active'));
-        images[currentIndex].classList.add('active');
-        currentIndex = (currentIndex + 1) % images.length;
-      }, 3000);
-    }
-
-    // Countdown
-    const countdownElem = document.getElementById('final-countdown');
-    if (countdownElem) {
-      countdownElem.style.animation = 'fadeIn 2s forwards';
-
-      const eventDate = new Date('June 28, 2025 11:00:00').getTime();
-
-      const countdownInterval = setInterval(() => {
-        const now = new Date().getTime();
-        const distance = eventDate - now;
-
-        if (distance < 0) {
-          countdownElem.innerHTML = "The event has started!";
-          clearInterval(countdownInterval);
-          return;
-        }
-
-        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-        countdownElem.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
-      }, 1000);
-    }
-
-    // Image gallery lightbox effect
-    document.querySelectorAll('.images-gallery img').forEach(img => {
-      img.addEventListener('click', () => {
-        const modal = document.createElement('div');
-        modal.style.position = 'fixed';
-        modal.style.top = '0';
-        modal.style.left = '0';
-        modal.style.width = '100%';
-        modal.style.height = '100%';
-        modal.style.background = 'rgba(0,0,0,0.8)';
-        modal.style.display = 'flex';
-        modal.style.alignItems = 'center';
-        modal.style.justifyContent = 'center';
-        modal.style.cursor = 'pointer';
-
-        const largeImg = document.createElement('img');
-        largeImg.src = img.src;
-        largeImg.style.maxWidth = '90%';
-        largeImg.style.maxHeight = '90%';
-
-        modal.appendChild(largeImg);
-        document.body.appendChild(modal);
-
-        modal.addEventListener('click', () => {
-          document.body.removeChild(modal);
-        });
-      });
-    });
-  });
+  
 </script>
 
 
