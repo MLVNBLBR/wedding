@@ -79,3 +79,17 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     });
   });
+
+function showColorName(clicked) {
+      document.querySelectorAll('.color2').forEach(el => el.classList.remove('active'));
+      clicked.classList.add('active');
+    }
+
+    document.querySelectorAll('.navbar-nav .nav-link').forEach(link => {
+    link.addEventListener('click', () => {
+      const navbarCollapse = document.querySelector('.navbar-collapse');
+      if (navbarCollapse.classList.contains('show')) {
+        new bootstrap.Collapse(navbarCollapse).hide();
+      }
+    });
+  });
