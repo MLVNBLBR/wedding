@@ -255,6 +255,7 @@
       max-width: 300px;
       width: 100%;
       text-align: left;
+      justify-content: center;
     }
 
     /* Responsive adjustments */
@@ -327,6 +328,7 @@
       font-size: 11px;
       color: #000000;
       visibility: hidden;
+      text-align: center;
     }
 
     .color2.active + .color-name {
