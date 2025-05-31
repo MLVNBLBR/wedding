@@ -325,7 +325,7 @@
     .color-name {
       height: 20px; /* fixed height to prevent layout shift */
       margin-top: 1px;
-      font-size: 11px;
+      font-size: 12px;
       color: #000000;
       visibility: hidden;
       text-align: center;
@@ -334,6 +334,50 @@
     .color2.active + .color-name {
       visibility: visible;
     }
+
+
+
+
+
+    .attire2 {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .attire-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 80px; /* fixed width to avoid shifting */
+    }
+
+    .attire2 {
+      width: 40px;
+      height: 40px;
+      cursor: pointer;
+    }
+
+    .attire-name {
+      height: 20px; /* fixed height to prevent layout shift */
+      margin-top: 1px;
+      font-size: 12px;
+      color: #000000;
+      visibility: hidden;
+      text-align: center;
+    }
+
+    .attire2.active + .attire-name {
+      visibility: visible;
+    }
+
+
+
+
+
+
+
 
     h2 {
       text-align: center;
@@ -428,9 +472,9 @@
     }
 
 
-    #main-content {
+    /*#main-content {
     display: none;
-    }
+    }*/
 
   /* Modal overlay styles */
   .modal {
@@ -485,37 +529,63 @@
     }
 
     .attire-images {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin-bottom: 10px;
-    }
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
 
-    .attire-images img {
-      width: 100px;
-      height: 100px;
-      object-fit: cover;
-      margin: 5px;
-    }
+.attire-images img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  margin: 5px;
+}
 
-    .description {
-      text-align: center;
-      font-size: 1em;
-      line-height: 1.6em;
-    }
+.description {
+  text-align: center;
+  font-size: 1em;
+  line-height: 1.6em;
+}
 
-    @media(max-width: 600px) {
+/* Keep existing mobile styles */
+@media (max-width: 600px) {
   .attire-images {
-    display: flex;
     flex-direction: column;
     align-items: center;
   }
+
   .image-row {
     display: flex;
     justify-content: center;
     margin-bottom: 5px;
   }
+
   .image-row img {
+    width: 80px;
+    height: 80px;
+    margin: 0 5px;
+  }
+}
+
+/* NEW: Laptop/Desktop styling to force 1 line */
+@media (min-width: 601px) {
+  .attire-images {
+    flex-wrap: nowrap;
+    gap: 10px;
+  }
+
+  .image-row {
+    display: contents; /* Flatten rows into parent flex layout */
+  }
+
+  .attire-images img {
+    width: 100px;
+    height: 100px;
+    margin: 0 5px;
+  }
+
+  .image1-row1 img {
     width: 80px; /* optional, for smaller images on mobile */
     height: 80px;
     margin: 0 5px;
