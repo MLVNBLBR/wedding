@@ -14,13 +14,13 @@
 
 </head>
 <body>
-  <div id="welcomeModal" class="modal">
+  <!--<div id="welcomeModal" class="modal">
     <div class="modal-content">
       <h2>You are Invited!</h2>
       <p>Celebrate with us as we mark the beginning of our new journey together in love and commitment. Join us in this joyous celebration of our wedding day!</p>
       <button id="closeModal" class="close-btn">Close</button>
     </div>
-  </div>
+  </div>-->
 
 <div id="main-content">
   <nav class="navbar navbar-expand-lg navbar-custom fixed-top py-3">
@@ -220,15 +220,15 @@
   </div>
 
   <div class="section1-title1" style="color: var(--rust-orange);">FLOWER GIRL</div>
-  <div class="names1">
+  <div class="names1" >
     Calistine Rose Tolibao<br>
     Yvenra Yullijah Balbar<br>
     Cyrille Mikyle Balbar
   </div>
 
 <!-- Our Love Story -->
-<div class="section" id="story" style="background-color: #fefae0;">
-  <h3 class="section-title" style="color: var(--rust-orange);">Our Love Story</h3>
+<div class="section" id="story" style="background-color: #fefae0; ">
+  <h3 class="section-title" style="color: var(--rust-orange); margin-bottom: -10px;">Our Love Story</h3>
   <div class="container">
     <p class="mt-4 mx-auto text-center" style="max-width:1000px; font-size:1.2rem; color:#333;">
       It all began with a chance encounter and a spark that grew into a beautiful journey. From our first date to unforgettable adventures, every moment has led us here. We are excited to celebrate our love with you!
@@ -250,17 +250,18 @@
     
       <div class="two1-columns1">
         <div class="column1">
-          <h3 class="section-title"  style="color: var(--rust-orange);">Notes on Gifts</h3>
+          <h3 class="section-title"  style="color: var(--rust-orange); margin-bottom: 4px;">Notes on Gifts</h3>
+          
           <div class="names1">
             WITH ALL THAT WE
-            HAVE, <br> WE'VE BEEN
+            HAVE, WE'VE BEEN
             TRULY BLESSED. YOUR
-            PRESSENCE <br>AND
-            PRAYERS ARE ALL <br>THAT
-            WE REQUEST. <br> BUT IF
-            YOUR DESIRE <br>TO GIVE
+            PRESSENCE AND
+            PRAYERS ARE ALL THAT
+            WE REQUEST. BUT IF
+            YOUR DESIRE TO GIVE
             NONETHELESS,
-            MONETARY GIFT <br> IS ONE 
+            MONETARY GIFT IS ONE 
             WE HUMBLY REQUEST.
           </div>
         </div>
@@ -271,11 +272,10 @@
       <br>
         <div class="two1-columns1">
           <div class="column1">
-          <h3 class="section-title"  style="color: var(--rust-orange);">The Vibes</h3>
+          <h3 class="section-title"  style="color: var(--rust-orange); margin-bottom: 4px;">The Vibes</h3>
         
           <div class="names1">
-            KINDLY REQUESTED
-            TO WEAR STRICKLY
+            KINDLY REQUESTED TO WEAR STRICKLY
             FORMAL ATTTIRE
             AND ENCOURAGED TO
             FOLLOW THE
@@ -298,59 +298,70 @@
                 <div class="color2" style="background-color: #fdddc5;" onclick="showColorName(this)"></div>
                 <div class="color-name">Light Beige</div>
               </div>
-              <div class="color-wrapper">
-                <div class="color2" style="background-color: #000000;" onclick="showColorName(this)"></div>
-                <div class="color-name">Black</div>
-              </div>
             </div>
             <br>
 
-             <div class="attire-images">
-        <!-- Wrap first two images in a container -->
+        <h3 class="notes" id="vibes" style="color: var(--rust-orange); margin-bottom: 4px;">Principal Sponsors</h3>
+
+        <div class="attire-images">
+        <!-- First two images -->
         <div class="image-row">
-          <img src="imgb1.png" alt="Barong with Black Pants" style="height: 100px; width: 100px; margin-right: 1px;">
-          <img src="imgd2.jpg" alt="Blue Gown" style="height: 100px; width: 100px;">
+          <div class="attire-wrapper">
+            <img class="attire2" src="imgb1.png" alt="Barong with Black Pants" onclick="showattire(this)">
+            <div class="attire-name">Barong</div>
+          </div>
+          <div class="attire-wrapper">
+            <img class="attire2" src="imgd2.jpg" alt="Blue Gown"  onclick="showattire(this)">
+            <div class="attire-name">Dress</div>
+          </div>
+          
         </div>
-        <!-- Wrap next two images in another container -->
+        <!-- Next two images -->
         <div class="image-row">
-          <img src="imgb2.jpg" alt="Barong with Black Pants" style="height: 100px; width: 100px; margin-right: 1px;">
-          <img src="imgd1.jpg" alt="Detailed Blue Gown" style="height: 100px; width: 100px;">
+          <div class="attire-wrapper">
+            <img class="attire2" src="imgb2.jpg" alt="Barong with Black Pants" onclick="showattire(this)">
+            <div class="attire-name">Barong</div>
+          </div>
+          <div class="attire-wrapper">
+            <img class="attire2" src="imgd1.jpg" alt="Detailed Blue Gown" onclick="showattire(this)">
+            <div class="attire-name">Dress</div>
+          </div>
+          
+          
         </div>
       </div>
-        </div>
+      </div>
 
  
 
         </div>
-        
-
       <p class="description">
         LADIES: Long Gown in Shade of Rust Orange/Beige<br>
         GENTLEMEN: Traditional Barong with Black Pants<br><br>
         <em>(Strictly white is reserved for the bride)</em>
       </p>
-    <h3 class="notes" id="vibes" style="color: var(--rust-orange);">Remiders</h3>
+    <h3 class="notes" id="vibes" style="color: var(--rust-orange); margin-bottom: 6px;">Remiders</h3>
     <div class="attire-images" style="display: flex; justify-content: center; gap: 30px;">
   <!-- First item -->
-      <div class="image-row" style="text-align: center;">
+      <div class="image1-row1" style="text-align: center;">
         <img src="bot.png" alt="Barong with Black Pants" style="height: 100px; width: 100px; display: block; margin: 0 auto;">
         <p>BE ON TIME</p>
       </div>
 
       <!-- Second item -->
-      <div class="image-row" style="text-align: center;">
+      <div class="image1-row1" style="text-align: center;">
         <img src="fte.png" alt="Barong with Black Pants" style="height: 100px; width: 100px; display: block; margin: 0 auto;">
         <p>FINISH THE EVENT</p>
       </div>
 
       <!-- Third item -->
-      <div class="image-row" style="text-align: center;">
+      <div class="image1-row1" style="text-align: center;">
         <img src="ehf.png" alt="Barong with Black Pants" style="height: 100px; width: 100px; display: block; margin: 0 auto;">
         <p>ENJOY & HAVE FUN</p>
       </div>
     </div>
 
-    <h3 class="notes" id="vibes" style="color: var(--rust-orange);">RSVP</h3>
+    <h3 class="notes" id="vibes" style="color: var(--rust-orange); margin-bottom: 4px;">RSVP</h3>
     <p class="description">
         WE HAVE RESERVED _ _ _ _ SEAT / S<br>
         FOR YOU. <br>
@@ -393,7 +404,7 @@
 <!-- Event Details & Final Countdown -->
 <div class="section" id="event-details" style="background-color: #fdddc5;">
   <div class="mt-4 text-center ">
-    <h3 class="section-title" style="color: var(--rust-orange);">Event Details</h3>
+    <h3 class="section-title" style="color: var(--rust-orange); margin-bottom: 4px;">Event Details</h3>
     <p style="font-size:1.5rem; color:#333;">June 28, 2025</p>
     <p style="font-size:1.5rem; color:#333;">Saturday, 11:00AM</p>
     <p style="font-size:1.5rem; color:#333;">CEREMONY: <br>"Archdiocesan Shrine ad Parish" <br> St. John the Baptist- Lian Batangas</p>
