@@ -93,3 +93,8 @@ function showColorName(clicked) {
       }
     });
   });
+
+  function showattire(clicked) {
+      document.querySelectorAll('.attire2').forEach(el => el.classList.remove('active'));
+      clicked.classList.add('active');
+    }
