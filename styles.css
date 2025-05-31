@@ -472,9 +472,9 @@
     }
 
 
-    /*#main-content {
+    #main-content {
     display: none;
-    }*/
+    }
 
   /* Modal overlay styles */
   .modal {
