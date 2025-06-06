@@ -98,3 +98,84 @@ function showColorName(clicked) {
       document.querySelectorAll('.attire2').forEach(el => el.classList.remove('active'));
       clicked.classList.add('active');
     }
+
+  document.addEventListener('DOMContentLoaded', function() {
+  // Existing code...
+
+  // Drag to scroll functionality
+  const scrollContainer = document.querySelector('.scroll-container');
+
+  let isDown = false;
+  let startX;
+  let scrollLeft;
+
+  if (scrollContainer) {
+    scrollContainer.addEventListener('mousedown', (e) => {
+      isDown = true;
+      scrollContainer.classList.add('active');
+      startX = e.pageX - scrollContainer.offsetLeft;
+      scrollLeft = scrollContainer.scrollLeft;
+    });
+    scrollContainer.addEventListener('mouseleave', () => {
+      isDown = false;
+      scrollContainer.classList.remove('active');
+    });
+    scrollContainer.addEventListener('mouseup', () => {
+      isDown = false;
+      scrollContainer.classList.remove('active');
+    });
+    scrollContainer.addEventListener('mousemove', (e) => {
+      if (!isDown) return;
+      e.preventDefault();
+      const x = e.pageX - scrollContainer.offsetLeft;
+      const walk = (x - startX) * 1; // adjust scroll speed if needed
+      scrollContainer.scrollLeft = scrollLeft - walk;
+    });
+  }
+
+  // Show zoomed image in modal
+  function showZoomImage(src) {
+    const modalOverlay = document.createElement('div');
+    Object.assign(modalOverlay.style, {
+      position: 'fixed',
+      top: '0',
+      left: '0',
+      width: '100%',
+      height: '100%',
+      backgroundColor: 'rgba(0,0,0,0.8)',
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      cursor: 'zoom-out',
+      zIndex: '9999'
+    });
+
+    const zoomedImg = document.createElement('img');
+    zoomedImg.src = src;
+    Object.assign(zoomedImg.style, {
+      maxWidth: '90%',
+      maxHeight: '90%',
+      borderRadius: '8px',
+      boxShadow: '0 4px 20px rgba(0,0,0,0.5)',
+      cursor: 'zoom-out'
+    });
+
+    modalOverlay.appendChild(zoomedImg);
+    document.body.appendChild(modalOverlay);
+
+    // Remove modal on click
+    modalOverlay.addEventListener('click', () => {
+      document.body.removeChild(modalOverlay);
+    });
+  }
+
+  // Attach click event to images for zoom
+  document.querySelectorAll('.img-container img').forEach((img) => {
+    img.addEventListener('click', () => {
+      showZoomImage(img.src);
+    });
+  });
+
+  // Optional: existing code for modal, countdown, etc.
+  // ...
+});
