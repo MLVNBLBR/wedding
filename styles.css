@@ -611,3 +611,69 @@
     margin-top: 10px;
   }
 }
+
+.gallery-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+
+  /* Navigation buttons styling */
+  .scroll-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    background: transparent;
+    border: none;
+    font-size: 2em;
+    cursor: pointer;
+    color: rgba(0, 0, 0, 0.3);
+    padding: 10px;
+    user-select: none;
+  }
+
+  .scroll-btn.left {
+    left: 10px;
+  }
+
+  .scroll-btn.right {
+    right: 10px;
+  }
+
+  /* Scroll container styles */
+  .scroll-container {
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+    cursor: none;
+    padding-bottom: 10px;
+    width: calc(100% - 60px);
+    margin: 0 30px;
+  }
+
+  /* Image container styles */
+  .img-container {
+    display: inline-block;
+    width: 150px; /* adjust as needed */
+    height: 150px;
+    margin: 0 5px;
+    border-radius: 8px;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+
+  /* Image styles */
+  .img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    cursor: pointer; /* for zoom */
+    transition: transform 0.3s;
+  }
+
+  /* Optional hover zoom effect for images */
+  .img-container img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  }
